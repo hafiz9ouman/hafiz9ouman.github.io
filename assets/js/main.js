@@ -1,10 +1,4 @@
-/**
-* Template Name: MyResume
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
@@ -19,6 +13,28 @@
       return document.querySelector(el)
     }
   }
+
+  /**
+   * Hide Button on Hero Section
+   */
+    // get the button element
+  const myButton = document.getElementById("side-btn");
+  const windowHeight = window.innerHeight;
+
+  // add a scroll event listener to the window object
+  window.addEventListener("scroll", () => {
+    // get the position of the first section
+    const section1Pos = document.getElementById("hero").getBoundingClientRect().bottom;
+    const section1PosPercentage = section1Pos / windowHeight * 100;
+
+    // if the first section is visible on the screen, hide the button
+    if (section1PosPercentage < 80) {
+      myButton.classList.remove("d-none");
+    } else {
+      myButton.classList.add("d-none");
+    }
+  });
+
 
   /**
    * Easy event listener function
