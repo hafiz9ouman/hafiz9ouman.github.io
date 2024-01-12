@@ -929,8 +929,16 @@
           .then(function(response) {
             console.log("Email sent:", response);
             // Handle success, e.g., show a success message
+
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("message").value = "";
             document.getElementById("loading").classList.add("d-none");
             document.getElementById("sent-message").classList.remove("d-none");
+            setTimeout(function(){
+              document.getElementById("sent-message").classList.add("d-none");
+            }, 5000)
           }, function(error) {
             document.getElementById("error-message").classList.remove("d-none");
             document.getElementById("error-message").textContent = error;
